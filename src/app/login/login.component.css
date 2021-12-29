@@ -1,0 +1,13 @@
+.main-layout {
+  display: grid; /* creates a grid layout */
+  grid-template-columns: 1fr 1fr 1fr; /* create a grid with 4 columns of equal available size*/
+  max-width: 100%;
+  max-height: fit-content;
+  margin: 0 auto;
+  grid-gap: 10px; /*Gap between the rows and columns*/
+}
+.ad1 {
+  grid-column: 2/3;
+  grid-row: 10/50;
+  border: 2px solid black;
+}
