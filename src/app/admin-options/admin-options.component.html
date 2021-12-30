@@ -1,0 +1,16 @@
+<h2>Welcome {{ loggedInUser }} !!</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="parentOption">
+        <div *ngFor="let a of userOptions">
+          <div>
+            <img src="{{ a.img }}" class="myOptionBox" alt="access" /><br />
+            <h4 style="text-align: center">{{ a.name }}</h4>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid body">
+  <!-- <div class="row">
     <div class="col-md-offset-3 col-md-6" style="border: 2px solid black">
       <form action="submit()">
         <table>
@@ -24,29 +24,74 @@
         </table>
       </form>
     </div>
-  </div>
-  <!-- <div class="main-layout">
-    <div class="ad1">
-      <form action="submit()">
-        <table>
-          <tr>
-            <td><label for="name">Name</label></td>
-
-            <td><input type="text" id="name" /></td>
-          </tr>
-          <br /><br />
-          <tr>
-            <td><label for="pass">Password </label></td>
-
-            <td><input type="password" id="pass" /></td>
-          </tr>
-          <br /><br />
-          <tr>
-            <td><input type="button" value="Submit" /></td>
-            <td><input type="button" value="Reset" /></td>
-          </tr>
-        </table>
-      </form>
-    </div>
   </div> -->
+  <div class="main-layout">
+    <section>
+      <form action="submit()">
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            class="form-control"
+            [(ngModel)]="login.userName"
+            placeholder="Enter your UserName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input
+            type="password"
+            id="pass"
+            name="pass"
+            class="form-control"
+            value="{login.password}"
+            [(ngModel)]="login.password"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="form-group">
+          <button
+            class="btn btn-success"
+            (keyup.enter)="submitHandler()"
+            (click)="submitHandler()"
+          >
+            Sumbit
+          </button>
+          <a href="">Forgot Password?</a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        placeholder="Email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Password"
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" id="exampleInputFile" />
+      <p class="help-block">Example block-level help text here.</p>
+    </div>
+    <div class="checkbox">
+      <label> <input type="checkbox" /> Check me out </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form> -->
 </div>
