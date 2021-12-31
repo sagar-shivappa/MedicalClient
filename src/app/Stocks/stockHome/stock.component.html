@@ -1,0 +1,36 @@
+<!-- <div class="container-fluid"> -->
+<!-- <mat-tab-group mat-align-tabs="left" dynamicHeight>
+  <mat-tab label="First">
+    <app-available-stocks></app-available-stocks>
+  </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group> -->
+
+<nav mat-tab-nav-bar style="background-color: #34c0eb; align-items: center">
+  <a
+    mat-tab-link
+    *ngFor="let link of tabs"
+    (click)="selectedTab(link)"
+    [active]="activeLink == link"
+    style="font-size: 40px; margin-left: 7%"
+  >
+    <i *ngIf="link.name == 'HOME'" class="fas fa-home"></i>
+
+    <i *ngIf="link.name == 'Available'" class="fas fa-boxes"></i>
+    <i *ngIf="link.name == 'Indented Stocks'" class="fas fa-dolly-flatbed"></i>
+    <i *ngIf="link.name == 'Expired Stocks'" class="fas fa-book-dead"></i>
+
+    {{ link.name }}
+  </a>
+  <hr />
+</nav>
+<div *ngIf="selectedTabValue === 'available'">
+  <app-available-stocks></app-available-stocks>
+</div>
+<div *ngIf="selectedTabValue === 'indentedStock'">
+  <app-indented-stocks></app-indented-stocks>
+</div>
+<div *ngIf="selectedTabValue === 'available1'">
+  <app-available-stocks></app-available-stocks>
+</div>

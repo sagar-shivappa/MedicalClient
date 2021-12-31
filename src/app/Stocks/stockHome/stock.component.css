@@ -1,0 +1,7 @@
+.mat-ink-bar {
+  background-color: #fff;
+}
+.tabs li.active-tab {
+  color: blue;
+  text-decoration: underline;
+}
