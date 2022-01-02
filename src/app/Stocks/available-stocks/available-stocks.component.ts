@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-available-stocks',
   templateUrl: './available-stocks.component.html',
-  styleUrls: ['./available-stocks.component.css']
+  styleUrls: ['./available-stocks.component.css'],
 })
 export class AvailableStocksComponent implements OnInit {
+  @Input() activeDrugList: any;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
