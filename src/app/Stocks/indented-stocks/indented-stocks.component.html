@@ -1,1 +1,32 @@
-<p>indented-stocks works!</p>
+<div class="container-fluid">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">DC Code</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Batch Number</th>
+        <th scope="col">Mnf Date</th>
+        <th scope="col">Expiry Date</th>
+        <th scope="col">Available Qty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of newList">
+        <th scope="row">{{ el.id }}</th>
+        <td>{{ el.dcCode }}</td>
+        <td>{{ el.productName }}</td>
+        <td>{{ el.batchNumber }}</td>
+        <td>{{ el.mnfDate }}</td>
+        <td>{{ el.expireDate }}</td>
+        <td>{{ el.quantity }}</td>
+        <td>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <button class="btn btn-success">Add New Item</button>
+  </div>
+</div>
