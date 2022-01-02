@@ -13,6 +13,8 @@ import { AvailableStocksComponent } from './Stocks/available-stocks/available-st
 import { IndentedStocksComponent } from './Stocks/indented-stocks/indented-stocks.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ExpiredStocksComponent } from './Stocks/expired-stocks/expired-stocks.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StockComponent,
     AvailableStocksComponent,
     IndentedStocksComponent,
+    ExpiredStocksComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
   ],
   exports: [],
   providers: [],

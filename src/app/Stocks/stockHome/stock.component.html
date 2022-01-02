@@ -13,12 +13,14 @@
     *ngFor="let link of tabs"
     (click)="selectedTab(link)"
     [active]="activeLink == link"
-    style="font-size: 40px; margin-left: 7%"
+    style="font-size: 40px; margin-left: 3%"
   >
     <i *ngIf="link.name == 'HOME'" class="fas fa-home"></i>
-
-    <i *ngIf="link.name == 'Available'" class="fas fa-boxes"></i>
-    <i *ngIf="link.name == 'Indented Stocks'" class="fas fa-dolly-flatbed"></i>
+    <i *ngIf="link.name == 'Available Stocks'" class="fas fa-boxes"></i>
+    <i
+      *ngIf="link.name == 'Indentable Stocks'"
+      class="fas fa-dolly-flatbed"
+    ></i>
     <i *ngIf="link.name == 'Expired Stocks'" class="fas fa-book-dead"></i>
 
     {{ link.name }}
@@ -26,11 +28,13 @@
   <hr />
 </nav>
 <div *ngIf="selectedTabValue === 'available'">
-  <app-available-stocks></app-available-stocks>
+  <app-available-stocks
+    [activeDrugList]="masterDrugList"
+  ></app-available-stocks>
 </div>
 <div *ngIf="selectedTabValue === 'indentedStock'">
-  <app-indented-stocks></app-indented-stocks>
+  <app-indented-stocks [indStockList]="masterDrugList"></app-indented-stocks>
 </div>
-<div *ngIf="selectedTabValue === 'available1'">
-  <app-available-stocks></app-available-stocks>
+<div *ngIf="selectedTabValue === 'expiredStock'">
+  <app-expired-stocks></app-expired-stocks>
 </div>

@@ -10,7 +10,7 @@ import { IndentedStocksComponent } from './Stocks/indented-stocks/indented-stock
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin/:name', component: AdminOptionsComponent },
-  { path: 'stock', component: StockComponent },
+  { path: 'stock/:name', component: StockComponent },
   { path: 'availableStock', component: AvailableStocksComponent },
   { path: 'indentedStock', component: IndentedStocksComponent },
   { path: '**', redirectTo: 'login' },
