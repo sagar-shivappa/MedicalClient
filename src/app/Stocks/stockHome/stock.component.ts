@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class StockComponent implements OnInit {
   selected = false;
   tab: any;
-  selectedTabValue = 'available';
+  selectedTabValue = '';
   activeLink: any;
   masterDrugList = [];
   public tabs = [
@@ -36,6 +36,7 @@ export class StockComponent implements OnInit {
     this.stockService.getStock().subscribe((data) => {
       this.masterDrugList = data;
       console.log('master', this.masterDrugList);
+      this.selectedTabValue = 'available';
     });
   }
   selectedTab(value: any) {

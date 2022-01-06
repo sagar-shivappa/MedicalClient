@@ -9,6 +9,7 @@
         <th scope="col">Mnf Date</th>
         <th scope="col">Expiry Date</th>
         <th scope="col">Available Qty</th>
+        <th scope="col">Req. Quantity</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,15 @@
         <td>{{ el.mnfDate }}</td>
         <td>{{ el.expireDate }}</td>
         <td>{{ el.quantity }}</td>
+        <td>
+          <input
+            type="number"
+            #reqQty
+            (keyup)="addRequirement(reqQty.value, el.id)"
+            class="form-control"
+            min="0"
+          />
+        </td>
         <td>
           <button class="btn btn-danger">Delete</button>
         </td>

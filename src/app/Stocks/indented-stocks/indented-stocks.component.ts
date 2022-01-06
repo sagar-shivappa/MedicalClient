@@ -14,4 +14,9 @@ export class IndentedStocksComponent implements OnInit {
     this.newList = this.indStockList.filter((item: any) => item.quantity < 20);
     console.log('intdented', this.newList);
   }
+  addRequirement(count: any, obj1: any) {
+    let a = this.newList.filter((item: any) => item.id == obj1);
+    this.newList[this.newList.indexOf(a[0])]['reqOty'] = count;
+    console.log(this.newList);
+  }
 }

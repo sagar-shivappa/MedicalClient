@@ -15,6 +15,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ExpiredStocksComponent } from './Stocks/expired-stocks/expired-stocks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -31,13 +36,18 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatFormFieldModule,
     FormsModule,
     CommonModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    MatInputModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
-  exports: [],
+  exports: [MatSortModule, MatFormFieldModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
 })

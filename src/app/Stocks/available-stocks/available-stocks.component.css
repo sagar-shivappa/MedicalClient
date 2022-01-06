@@ -1,0 +1,14 @@
+table {
+  width: 90%;
+  align-items: center;
+  margin-left: 5%;
+}
+.filter {
+  margin-left: 5%;
+  height: 10%;
+}
+table th {
+  color: orange;
+  font-size: 20px;
+  font-weight: 600;
+}
