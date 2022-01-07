@@ -19,4 +19,9 @@ export class IndentedStocksComponent implements OnInit {
     this.newList[this.newList.indexOf(a[0])]['reqOty'] = count;
     console.log(this.newList);
   }
+  deleteItem(value: any) {
+    let a = this.newList.filter((item: any) => item.id == value);
+    // console.log(this.newList.indexOf(a[0]), 1);
+    this.newList.splice(this.newList.indexOf(a[0]), 1);
+  }
 }

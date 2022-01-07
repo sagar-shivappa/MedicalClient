@@ -1,4 +1,8 @@
 <div class="container-fluid">
+  <div>
+    <button class="btn btn-success">Add New Item</button>
+  </div>
+  <hr />
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -31,12 +35,11 @@
           />
         </td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <button (click)="deleteItem(el.id)" class="btn btn-danger">
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
-  <div>
-    <button class="btn btn-success">Add New Item</button>
-  </div>
 </div>
