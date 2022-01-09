@@ -20,6 +20,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddItemPopComponent } from './Stocks/add-item-pop/add-item-pop.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MatSortModule } from '@angular/material/sort';
     AvailableStocksComponent,
     IndentedStocksComponent,
     ExpiredStocksComponent,
+    AddItemPopComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +49,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
   ],
-  exports: [MatSortModule, MatFormFieldModule, MatInputModule],
+  exports: [MatSortModule, MatFormFieldModule, MatInputModule, MatDialogModule],
   providers: [],
   bootstrap: [AppComponent],
 })
