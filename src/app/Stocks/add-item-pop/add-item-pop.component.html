@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <form action="submit">
+    <h3>Add to Indent</h3>
+    <div class="form-group">
+      <label for="dcCode">Drug Code</label>
+      <input
+        type="text"
+        [(ngModel)]="newDrug.dcCode"
+        class="form-control"
+        name="drugCode"
+        id="dcCode"
+      />
+      <label for="drugName">Drug Name</label>
+      <input
+        type="text"
+        [(ngModel)]="newDrug.productName"
+        class="form-control"
+        name="drugName"
+        required="true"
+        id="drugName"
+      />
+      <label for="qty">Quantity</label>
+      <input
+        type="number"
+        min="0"
+        [(ngModel)]="newDrug.reqQty"
+        class="form-control"
+        name="qty"
+        required
+        id="qty"
+      />
+      <br />
+      <button (click)="closeDialog()" class="btn btn-primary">Add</button>
+    </div>
+  </form>
+</div>
