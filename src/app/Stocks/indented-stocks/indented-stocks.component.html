@@ -1,9 +1,11 @@
 <div class="container-fluid">
   <div>
-    <button class="btn btn-success">Add New Item</button>
+    <button class="btn btn-success" mat-raised-button (click)="openDialog()">
+      Add New Item
+    </button>
   </div>
   <hr />
-  <table class="table">
+  <table class="table" style="width: 100%">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -14,6 +16,7 @@
         <th scope="col">Expiry Date</th>
         <th scope="col">Available Qty</th>
         <th scope="col">Req. Quantity</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,10 +35,15 @@
             (keyup)="addRequirement(reqQty.value, el.id)"
             class="form-control"
             min="0"
+            style="height: 40px; font-size: 20px"
           />
         </td>
         <td>
-          <button (click)="deleteItem(el.id)" class="btn btn-danger">
+          <button
+            (click)="deleteItem(el.id)"
+            style="height: 30px; font-size: 15px"
+            class="btn btn-danger"
+          >
             Delete
           </button>
         </td>
