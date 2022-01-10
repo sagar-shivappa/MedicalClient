@@ -1,19 +1,23 @@
 <div class="container-fluid">
-  <div>
+  <div style="display: flex; justify-content: space-between">
     <button class="btn btn-success" mat-raised-button (click)="openDialog()">
       Add New Item
     </button>
+    <button class="btn btn-primary" (click)="downloadExcel()">
+      Download XL
+    </button>
   </div>
   <hr />
+  <!-- {{ newList | json }} -->
   <table class="table" style="width: 100%">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <!-- <th scope="col">#</th> -->
         <th scope="col">DC Code</th>
         <th scope="col">Product Name</th>
-        <th scope="col">Batch Number</th>
-        <th scope="col">Mnf Date</th>
-        <th scope="col">Expiry Date</th>
+        <!-- <th scope="col">Batch Number</th> -->
+        <!-- <th scope="col">Mnf Date</th>
+        <th scope="col">Expiry Date</th> -->
         <th scope="col">Available Qty</th>
         <th scope="col">Req. Quantity</th>
         <th></th>
@@ -21,19 +25,21 @@
     </thead>
     <tbody>
       <tr *ngFor="let el of newList">
-        <th scope="row">{{ el.id }}</th>
+        <!-- <th scope="row">{{ el.id }}</th> -->
         <td>{{ el.dcCode }}</td>
         <td>{{ el.productName }}</td>
-        <td>{{ el.batchNumber }}</td>
-        <td>{{ el.mnfDate }}</td>
-        <td>{{ el.expireDate }}</td>
+        <!-- <td>{{ el.batchNumber }}</td> -->
+        <!-- <td>{{ el.mnfDate }}</td>
+        <td>{{ el.expireDate }}</td> -->
         <td>{{ el.quantity }}</td>
         <td>
+          <!-- {{  | json }} -->
           <input
             type="number"
             #reqQty
             (keyup)="addRequirement(reqQty.value, el.id)"
             class="form-control"
+            value="{{ el.reqQty }}"
             min="0"
             style="height: 40px; font-size: 20px"
           />
