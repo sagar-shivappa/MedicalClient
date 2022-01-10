@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div style="display: flex; justify-content: space-between">
+  <div class="buttonActions">
     <button class="btn btn-success" mat-raised-button (click)="openDialog()">
       Add New Item
     </button>
@@ -7,7 +7,7 @@
       Download XL
     </button>
   </div>
-  <hr />
+  <!-- <hr /> -->
   <!-- {{ newList | json }} -->
   <table class="table" style="width: 100%">
     <thead class="thead-dark">
@@ -19,7 +19,7 @@
         <!-- <th scope="col">Mnf Date</th>
         <th scope="col">Expiry Date</th> -->
         <th scope="col">Available Qty</th>
-        <th scope="col">Req. Quantity</th>
+        <th scope="col">Required Stock</th>
         <th></th>
       </tr>
     </thead>

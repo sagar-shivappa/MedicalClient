@@ -2,3 +2,14 @@ td {
   height: 40px;
   font-size: 20px;
 }
+table thead {
+  color: orange;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: black;
+}
+.buttonActions {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
