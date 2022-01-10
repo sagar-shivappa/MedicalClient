@@ -6,11 +6,13 @@ import { StockComponent } from './Stocks/stockHome/stock.component';
 import { LoginComponent } from './login/login.component';
 import { AvailableStocksComponent } from './Stocks/available-stocks/available-stocks.component';
 import { IndentedStocksComponent } from './Stocks/indented-stocks/indented-stocks.component';
+import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'admin/:name', component: AdminOptionsComponent },
   { path: 'stock/:name', component: StockComponent },
+  { path: 'sales/:name', component: SalesHomeComponent },
   { path: 'availableStock', component: AvailableStocksComponent },
   { path: 'indentedStock', component: IndentedStocksComponent },
   { path: '**', redirectTo: 'login' },
