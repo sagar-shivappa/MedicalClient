@@ -36,6 +36,8 @@ export class AdminOptionsComponent implements OnInit {
   optionHandler(value: any) {
     if (value == 'Stock') {
       this.router.navigate(['stock', this.loggedInUser]);
+    } else if (value == 'Sales') {
+      this.router.navigate(['sales', this.loggedInUser]);
     }
   }
 }

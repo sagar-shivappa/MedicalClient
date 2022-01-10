@@ -13,3 +13,6 @@ table thead {
   justify-content: space-between;
   margin: 10px;
 }
+table {
+  border: 1px solid black;
+}
