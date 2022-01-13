@@ -1,5 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+
 .body {
   height: 94vh;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: linear-gradient(to top, #33bec4, #2bb3c7, #33a7c7, #429bc3, #528ebb, #5992bc, #6095be, #6799bf, #70adca, #7fc1d4, #94d4dc, #ace7e4);
 }
 
 .main-layout {
@@ -10,10 +16,66 @@
   justify-content: center;
   margin-left: 20%;
   /* border: 1px solid black; */
+  margin-top: 200px;
+  
 }
+
 
 .tableEle {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.form-group{
+ color: rgb(191, 199, 199);
+width:50%;
+text-transform:uppercase;
+padding:10px 40px;
+font-weight: bold;
+/*transition: all 2s;*/
+transition: 0.5s;
+}
+
+.form-group:hover{
+  border-radius: 40px;
+  
+  color:#11020f;
+  
+  /*transition: scale(1.1);*/
+  transform: translateY(-20px);
+
+
+  
+}
+
+.form-control{
+  font-weight: 500;
+line-height: 1.75;
+text-transform: uppercase;
+padding:200px,50px,200px,50px;
+
+}
+
+.saas{
+  font:bolder;
+  font-size: 100px;
+  font-family: 'Josefin Sans', sans-serif;
+  position:relative;
+  top: 128px;
+  left:200px;
+  
+  padding:15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+h3 span{
+  border: 4px dashed #20bcd5;
+  border-radius: 50%;
+  
+}
+
+.container-fluid body{
+border-radius: 4px solid black;
+  ;}
