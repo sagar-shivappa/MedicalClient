@@ -27,7 +27,7 @@
   </div> -->
   <h2 class="saas"><span> SAAS MEDICALS </span></h2>
   <div class="main-layout">
-    <section>
+    <section class="box-animation">
       <form action="submit()">
         <div class="form-group">
           <label for="userName">User Name</label>
@@ -35,7 +35,7 @@
             type="text"
             id="userName"
             name="userName"
-            class="form-control"
+            class="form-control text-control"
             [(ngModel)]="login.userName"
             placeholder="Enter your UserName"
           />
@@ -46,22 +46,21 @@
             type="password"
             id="pass"
             name="pass"
-            class="form-control"
+            class="form-control text-control"
             value="{login.password}"
             [(ngModel)]="login.password"
             placeholder="Enter your password"
           />
         </div>
-        <div class="form-group">
+        <div class="form-group text-control">
           <button
             class="btn btn-success"
             (keyup.enter)="submitHandler()"
             (click)="submitHandler()"
           >
             Submit
-          
           </button>
-          <br>
+          <br />
           <a href="">Forgot Password?</a>
         </div>
       </form>
