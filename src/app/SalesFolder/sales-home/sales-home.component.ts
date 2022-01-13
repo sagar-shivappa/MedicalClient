@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-sales-home',
   templateUrl: './sales-home.component.html',
-  styleUrls: ['./sales-home.component.css']
+  styleUrls: ['./sales-home.component.css'],
 })
 export class SalesHomeComponent implements OnInit {
-
-  constructor() { }
+  userName: any;
+  constructor(public actRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    let name = this.actRoute.params.subscribe((data) => {
+      this.userName = data['name'];
+    });
   }
-
 }
