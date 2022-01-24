@@ -35,6 +35,7 @@ export class StockComponent implements OnInit {
 
     this.stockService.getStock().subscribe((data) => {
       this.masterDrugList = data;
+      // this.masterDrugList = data['data'];
       console.log('master', this.masterDrugList);
       this.selectedTabValue = 'available';
     });

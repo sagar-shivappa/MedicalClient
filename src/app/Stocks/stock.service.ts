@@ -10,5 +10,6 @@ export class StockService {
 
   getStock(): Observable<any> {
     return this.http.get('https://61500026a706cd00179b7357.mockapi.io/users');
+    // return this.http.get('https://testsagarexpress.herokuapp.com/users/all');
   }
 }
