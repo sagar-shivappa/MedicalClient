@@ -15,6 +15,7 @@ import { ExcelSheetService } from '../../../services/excel-sheet.service';
 })
 export class IndentedStocksComponent implements OnInit {
   @Input() indStockList: any;
+  p = 1;
   newList: any;
   reqQty: any;
   constructor(
@@ -24,7 +25,7 @@ export class IndentedStocksComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.newList = this.indStockList.filter((item: any) => item.quantity < 20);
+    this.newList = this.indStockList.filter((item: any) => item.quantity < 100);
     console.log(this.newList);
 
     this.sharedService.currentData.subscribe((data) => {

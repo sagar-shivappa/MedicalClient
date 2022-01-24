@@ -16,3 +16,8 @@ table thead {
 table {
   border: 1px solid black;
 }
+.pagination {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
