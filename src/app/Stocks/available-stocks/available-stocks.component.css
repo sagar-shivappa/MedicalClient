@@ -13,3 +13,8 @@ table th {
   font-weight: 600;
   background-color: black;
 }
+.pagination {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
