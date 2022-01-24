@@ -17,6 +17,7 @@ import { ExpiredStocksComponent } from './Stocks/expired-stocks/expired-stocks.c
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
@@ -41,9 +42,11 @@ import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.componen
     SalesHomeComponent,
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
+
     FormsModule,
     CommonModule,
     MatTabsModule,
@@ -55,7 +58,13 @@ import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.componen
     MatSortModule,
     MatDialogModule,
   ],
-  exports: [MatSortModule, MatFormFieldModule, MatInputModule, MatDialogModule],
+  exports: [
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    NgxPaginationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

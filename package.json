@@ -21,8 +21,11 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "file-saver": "^2.0.5",
+    "jquery": "^3.6.0",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~7.4.0",
     "rxjs-compat": "^6.6.7",
+    "save": "^2.4.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.17.4",
     "zone.js": "~0.11.4"
