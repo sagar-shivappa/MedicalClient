@@ -13,7 +13,8 @@
   border-radius: 5%;
   cursor: pointer;
   transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .myOptionBox:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
