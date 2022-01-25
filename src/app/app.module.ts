@@ -23,8 +23,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddItemPopComponent } from './Stocks/add-item-pop/add-item-pop.component';
-import { MySalesComponent } from './SalesFolder/my-sales/my-sales.component';
+import { MySalesComponent } from './SalesFolder/my-history-sales/my-sales.component';
 import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.component';
+import { TodaysSalesComponent } from './SalesFolder/todays-sales/todays-sales.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.componen
     AddItemPopComponent,
     MySalesComponent,
     SalesHomeComponent,
+    TodaysSalesComponent,
   ],
   imports: [
     NgxPaginationModule,
