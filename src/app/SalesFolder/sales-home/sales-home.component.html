@@ -1,1 +1,21 @@
-<h2>Welcome to your sales profile, {{ userName }}</h2>
+<div class="title">
+  <i class="fas fa-home"></i>
+  <span *ngIf="welcome" style="animation: fadeout 4s"
+    >Welcome to your sales profile, {{ userName | uppercase }}</span
+  >
+</div>
+
+<div class="container-fluid">
+  <mat-tab-group>
+    <mat-tab label="Today's Sale">
+      <h1>Some tab content</h1>
+      <p>...</p>
+    </mat-tab>
+    <mat-tab label="History">
+      <h1>Some more tab content</h1>
+      <p>...</p>
+    </mat-tab>
+  </mat-tab-group>
+
+  <router-outlet></router-outlet>
+</div>
