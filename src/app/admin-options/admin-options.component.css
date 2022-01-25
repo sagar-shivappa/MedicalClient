@@ -5,10 +5,15 @@
   padding: 5%;
   margin: 5px;
 }
+
 .myOptionBox {
   width: 200px;
   height: 250px;
   border: 1px solid black;
   border-radius: 5%;
   cursor: pointer;
+  transition: all 0.5s;
+}
+.myOptionBox:hover {
+  transform: scale(1.2);
 }

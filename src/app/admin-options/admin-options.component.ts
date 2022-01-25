@@ -25,6 +25,11 @@ export class AdminOptionsComponent implements OnInit {
       id: '131',
       img: 'https://image.shutterstock.com/image-vector/various-meds-pills-capsules-blisters-260nw-1409823341.jpg',
     },
+    {
+      name: 'Vendors',
+      id: '141',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsX4Q7Va14iCqVEAq3Ysxp5zD8PgybHAgWJQ&usqp=CAU',
+    },
   ];
   constructor(public actRoute: ActivatedRoute, private router: Router) {}
 
