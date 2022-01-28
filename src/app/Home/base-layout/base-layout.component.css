@@ -3,9 +3,9 @@
   background-color: orange;
   display: flex;
   gap: 1%;
-  padding-left: 20px;
-  /* padding-bottom: 5px; */
-  padding-right: 20px;
+  /* padding-left: 20px;
+  
+  padding-right: 20px; */
   position: relative;
 }
 h3 {

@@ -26,6 +26,7 @@ import { AddItemPopComponent } from './Stocks/add-item-pop/add-item-pop.componen
 import { MySalesComponent } from './SalesFolder/my-history-sales/my-sales.component';
 import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.component';
 import { TodaysSalesComponent } from './SalesFolder/todays-sales/todays-sales.component';
+import { RegisterUserComponent } from './RegisterUser/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TodaysSalesComponent } from './SalesFolder/todays-sales/todays-sales.co
     MySalesComponent,
     SalesHomeComponent,
     TodaysSalesComponent,
+    RegisterUserComponent,
   ],
   imports: [
     NgxPaginationModule,

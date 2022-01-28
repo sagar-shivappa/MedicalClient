@@ -1,5 +1,13 @@
 .body {
   height: 94vh;
+  background-image: linear-gradient(
+    to bottom,
+    #e8873b,
+    #e97a2f,
+    #ea6d24,
+    #ea5e1a,
+    #eb4c12
+  );
 }
 
 .main-layout {
@@ -9,6 +17,7 @@
   /* align-items: center; */
   justify-content: center;
   margin-left: 20%;
+  padding-top: 5%;
   /* border: 1px solid black; */
 }
 
@@ -16,4 +25,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.register {
+  display: flex;
+  justify-content: end;
+  margin: 1%;
+  cursor: pointer;
 }

@@ -1,35 +1,20 @@
 <div class="container-fluid body">
-  <!-- <div class="row">
-    <div class="col-md-offset-3 col-md-6" style="border: 2px solid black">
-      <form action="submit()">
-        <table>
-          <tr>
-            <td><label for="name">Name</label></td>
+  <div class="register">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      Register
+    </button>
+  </div>
 
-            <td><input type="text" id="name" /></td>
-          </tr>
-          <br /><br />
-          <tr>
-            <td><label for="pass">Password </label></td>
-
-            <td><input type="password" id="pass" /></td>
-          </tr>
-          <br /><br />
-          <tr>
-            <td>
-              <input type="button" class="btn btn-primary" value="Submit" />
-            </td>
-            <td><input type="button" class="btn btn-info" value="Reset" /></td>
-          </tr>
-        </table>
-      </form>
-    </div>
-  </div> -->
   <div class="main-layout">
-    <section>
+    <section class="col-md-offset-2 col-md-8">
       <form action="submit()">
         <div class="form-group">
-          <label for="userName">User Name</label>
+          <label for="userName"><h1>User Name</h1></label>
           <input
             type="text"
             id="userName"
@@ -40,7 +25,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="pass">Password</label>
+          <label for="pass"><h1>Password</h1></label>
           <input
             type="password"
             id="pass"
@@ -59,7 +44,7 @@
           >
             Sumbit
           </button>
-          <a href="">Forgot Password?</a>
+          <a style="margin-left: 3%" href="">Forgot Password?</a>
         </div>
       </form>
     </section>
