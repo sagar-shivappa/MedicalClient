@@ -32,7 +32,7 @@
             name="pass"
             class="form-control"
             value="{login.password}"
-            [(ngModel)]="login.password"
+            [(ngModel)]="login.passWord"
             placeholder="Enter your password"
           />
         </div>
@@ -44,7 +44,16 @@
           >
             Sumbit
           </button>
+          <img
+            *ngIf="loader"
+            class="loader"
+            src="https://i.gifer.com/ZZ5H.gif"
+            alt=""
+          />
           <a style="margin-left: 3%" href="">Forgot Password?</a>
+        </div>
+        <div>
+          <h2 style="color: red">{{ errorMessage }}</h2>
         </div>
       </form>
     </section>
