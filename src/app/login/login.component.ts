@@ -14,7 +14,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   public login = {
-    userName: '',
+    phoneNumber: '',
     passWord: '',
   };
   errorMessage: any;
@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
     this.loginService.loginPost(this.login).subscribe((data: any) => {
       if (data.message === 'LogIn Success') {
         this.loader = false;
-        this.router.navigate(['/admin', this.login.userName]);
+        this.router.navigate(['/admin', data.nickName]);
       } else {
         this.login = {
-          userName: '',
+          phoneNumber: '',
           passWord: '',
         };
         this.loader = false;
