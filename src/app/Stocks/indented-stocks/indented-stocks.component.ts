@@ -40,8 +40,10 @@ export class IndentedStocksComponent implements OnInit {
     console.log(this.newList);
   }
   deleteItem(value: any) {
-    let a = this.newList.filter((item: any) => item.id == value);
-    this.newList.splice(this.newList.indexOf(a[0]), 1);
+    if (confirm(`Deleting Item ${value.productName} ?`)) {
+      let a = this.newList.filter((item: any) => item.id == value.id);
+      this.newList.splice(this.newList.indexOf(a[0]), 1);
+    }
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddItemPopComponent, {
