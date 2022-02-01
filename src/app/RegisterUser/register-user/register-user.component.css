@@ -32,3 +32,10 @@
   border-radius: 5px;
   padding: 1%;
 }
+.back {
+  font-size: 35px;
+  display: flex;
+  justify-content: end;
+  margin: 1.5%;
+  gap: 0.5%;
+}
