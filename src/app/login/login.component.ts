@@ -7,6 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { RegisterUserComponent } from '../RegisterUser/register-user/register-user.component';
 import { LoginService } from './login.service';
+import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     public dialog: MatDialog,
-    public loginService: LoginService
+    public loginService: LoginService,
+    public sharedService: SharedService
   ) {}
 
   ngOnInit(): void {}
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
     this.loginService.loginPost(this.login).subscribe((data: any) => {
       if (data.message === 'LogIn Success') {
         this.loader = false;
+        this.sharedService.getLoggedInUser(data);
         this.router.navigate(['/admin', data.nickName]);
       } else {
         this.login = {

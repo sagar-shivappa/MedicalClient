@@ -10,14 +10,12 @@ declare var $: any;
 export class SalesHomeComponent implements OnInit {
   userName: any;
   welcome: boolean = true;
+
   constructor(public actRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     let name = this.actRoute.params.subscribe((data) => {
       this.userName = data['name'];
     });
-    setTimeout(() => {
-      this.welcome = false;
-    }, 3000);
   }
 }
