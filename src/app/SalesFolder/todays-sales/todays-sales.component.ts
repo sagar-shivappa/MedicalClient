@@ -9,6 +9,8 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class TodaysSalesComponent implements OnInit {
   public loggedInUser: any = 0;
+  customSales: any = 0;
+
   message: any;
   today: any;
   addSales = {
@@ -17,6 +19,7 @@ export class TodaysSalesComponent implements OnInit {
     updatedTime: '',
     owner: '',
   };
+  mySalesOpen: boolean = false;
   mySales: any;
   constructor(
     public sharedService: SharedService,
@@ -54,12 +57,26 @@ export class TodaysSalesComponent implements OnInit {
 
   fetchAllSales() {
     let user = { owner: this.loggedInUser.shopId };
-    if (this.loggedInUser) {
+    // let user = { owner: 9945915370 };
+    if (this.loggedInUser && !this.mySalesOpen) {
       this.commonService.getAllSales(user).subscribe((res) => {
-        this.mySales = res.data;
-        // console.log(res.data);
-        // this.message = res.message;
+        this.mySales = res.data.reverse();
+        this.mySalesOpen = true;
       });
+    } else {
+      this.mySalesOpen = false;
     }
+  }
+  selctedDays(value: any) {
+    let latestSales = this.mySales;
+    let price = 0;
+    latestSales.map((item: any, index: any) => {
+      //console.log(item, index);
+      if (value - 1 >= index) {
+        price = price + item.todaysSales;
+      }
+    });
+    this.customSales = price;
+    console.log(price);
   }
 }

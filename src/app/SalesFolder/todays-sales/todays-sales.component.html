@@ -34,10 +34,51 @@
       class="btn btn-info sales-history"
     >
       Open My Sales History
-      <i class="fas fa-chevron-down"></i>
+      <i *ngIf="!mySalesOpen" class="fas fa-chevron-down"></i>
+      <i *ngIf="mySalesOpen" class="fas fa-chevron-up"></i>
     </button>
-    <div class="mySales">
-      <p>Lorem ipsum...</p>
+  </div>
+  <br />
+  <div *ngIf="mySalesOpen" class="parent-sales">
+    <div class="mySales col-md-7">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <td>Date</td>
+            <td>Sales</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="editdata" *ngFor="let item of mySales">
+            <td>{{ item.selectedDate }}</td>
+            <td>{{ item.todaysSales | currency: "INR":true }}</td>
+            <td><i class="fas fa-pencil-alt"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="form-group col-md-offset-1 col-md-3">
+      <label for="days">Select Days</label>
+      <select
+        name="days"
+        autofocus
+        #select
+        (click)="selctedDays(select.value)"
+        class="form-control col-md-4"
+        id="days"
+      >
+        <option>--Select Your Days--</option>
+        <option value="3">3 Days</option>
+        <option value="5">5 Days</option>
+        <option value="7">7 Days</option>
+        <option value="10">10 Days</option>
+      </select>
+      <br /><br />
+      <div class="sales-show">
+        <p>Your Sales for Last selcted days</p>
+        <h1 class="saleCount">{{ customSales | currency: "INR":true }}</h1>
+      </div>
     </div>
   </div>
 </div>
