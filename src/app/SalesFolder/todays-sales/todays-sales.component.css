@@ -8,12 +8,12 @@ input {
 }
 .save {
   height: 50px;
-  width: 5%;
+
   font-size: 200%;
   align-items: center;
   margin-top: 25px;
   border-radius: 10px;
-  margin-left: 2%;
+
   background-color: #86b300;
   color: white;
   border: 0px;
@@ -48,4 +48,13 @@ thead {
   top: 80px;
   font-size: 40px;
   color: #739900;
+}
+.myDays {
+  font-size: 30px;
+  color: #739900;
+}
+.loader {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
 }

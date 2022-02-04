@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common.service';
 import { SharedService } from 'src/app/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todays-sales',
@@ -10,7 +11,8 @@ import { SharedService } from 'src/app/shared.service';
 export class TodaysSalesComponent implements OnInit {
   public loggedInUser: any = 0;
   customSales: any = 0;
-
+  daySales: any = 0;
+  loader: boolean = false;
   message: any;
   today: any;
   addSales = {
@@ -23,7 +25,8 @@ export class TodaysSalesComponent implements OnInit {
   mySales: any;
   constructor(
     public sharedService: SharedService,
-    public commonService: CommonService
+    public commonService: CommonService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +44,7 @@ export class TodaysSalesComponent implements OnInit {
   }
 
   submitSales() {
+    this.loader = true;
     this.addSales.updatedTime =
       this.today.getHours() +
       ':' +
@@ -51,6 +55,8 @@ export class TodaysSalesComponent implements OnInit {
     if (this.loggedInUser) {
       this.commonService.addTodaySales(this.addSales).subscribe((res) => {
         this.message = res.message;
+        this.daySales = res.updatedSales;
+        this.loader = false;
       });
     }
   }
@@ -78,5 +84,8 @@ export class TodaysSalesComponent implements OnInit {
     });
     this.customSales = price;
     console.log(price);
+  }
+  backHome() {
+    this.route.navigate(['admin/' + this.loggedInUser]);
   }
 }
