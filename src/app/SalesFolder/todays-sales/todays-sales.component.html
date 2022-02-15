@@ -17,11 +17,51 @@
         type="number"
         class="form-control"
         id="sales"
-        [(ngModel)]="addSales.todaysSales"
+        [(ngModel)]="addSales.paymentMoney"
       />
     </div>
+
+    <mat-radio-group
+      class="col-md-4"
+      aria-label="Select an option"
+      [(ngModel)]="addSales.paymentType"
+      labelPosition="before"
+    >
+      <mat-radio-button value="Cash_Payment">
+        <div class="paymentType">
+          <!-- <label class="form-check-label" for="flexCheckChecked"
+            ><h3>Cash</h3>
+          </label> -->
+          <img
+            class="imagesPayment"
+            src="https://image.shutterstock.com/image-vector/cartoon-vector-illustration-cash-coins-260nw-45014608.jpg"
+            alt=""
+          />
+        </div>
+      </mat-radio-button>
+      <mat-radio-button value="UPI_Payment">
+        <div class="paymentType">
+          <!-- <label class="form-check-label" for="flexCheckDefault"
+            ><h3>PhonePe/GPay</h3>
+          </label> -->
+          <img
+            class="imagesPayment"
+            src="https://m.economictimes.com/thumb/msid-74960608,width-1200,height-900,resizemode-4,imgsize-49172/upi-twitter.jpg"
+            alt=""
+          /></div
+      ></mat-radio-button>
+      <mat-radio-button value="donors_Pay"
+        ><div class="paymentType">
+          <label class="form-check-label" for="flexCheckDefault"
+            ><h3>Donor's</h3>
+          </label>
+          <i style="font-size: 30px" class="fas fa-user"></i></div
+      ></mat-radio-button>
+    </mat-radio-group>
+
     <div class="col-md-2">
-      <button class="save" (click)="submitSales()">Save</button
+      <button class="save" (click)="submitSales()">
+        {{ addSales.paymentType }} Save</button
       ><img
         *ngIf="loader"
         class="loader"
@@ -29,6 +69,7 @@
         alt=""
       />
     </div>
+
     <div class="col-md-offset-1 col-md-2">
       <h1>Your Days Sales</h1>
       <h2 class="myDays">{{ daySales | currency: "INR":true }}</h2>
@@ -56,13 +97,20 @@
         <thead>
           <tr>
             <td>Date</td>
-            <td>Sales</td>
+
+            <td>Cash</td>
+            <td>UPI</td>
+            <td>Donor's</td>
+            <td>Total Sale's</td>
             <td></td>
           </tr>
         </thead>
         <tbody>
           <tr class="editdata" *ngFor="let item of mySales">
             <td>{{ item.selectedDate }}</td>
+            <td>{{ item.Cash_Payment | currency: "INR":true }}</td>
+            <td>{{ item.UPI_Payment | currency: "INR":true }}</td>
+            <td>{{ item.donors_Pay | currency: "INR":true }}</td>
             <td>{{ item.todaysSales | currency: "INR":true }}</td>
             <td><i class="fas fa-pencil-alt"></i></td>
           </tr>

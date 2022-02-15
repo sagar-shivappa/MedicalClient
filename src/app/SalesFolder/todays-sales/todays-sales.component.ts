@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/common.service';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todays-sales',
@@ -12,17 +13,24 @@ export class TodaysSalesComponent implements OnInit {
   public loggedInUser: any = 0;
   customSales: any = 0;
   daySales: any = 0;
-  loader: boolean = false;
+  loader: boolean = true;
+  // paymentType: any;
   message: any;
   today: any;
   addSales = {
     selectedDate: '',
     todaysSales: '',
     updatedTime: '',
-    owner: '',
+    owner: '111',
+    Cash_Payment: 0,
+    UPI_Payment: 0,
+    donors_Pay: 0,
+    paymentType: '',
+    paymentMoney: '',
   };
   mySalesOpen: boolean = false;
   mySales: any;
+  paymentGroup: any;
   constructor(
     public sharedService: SharedService,
     public commonService: CommonService,
@@ -31,6 +39,7 @@ export class TodaysSalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.today = new Date();
+
     this.addSales.selectedDate =
       this.today.getFullYear() +
       '-' +
@@ -40,11 +49,14 @@ export class TodaysSalesComponent implements OnInit {
     this.sharedService.loggedInUser.subscribe((data) => {
       this.loggedInUser = data;
       this.addSales.owner = this.loggedInUser.shopId;
+      this.fetchTodaysSales();
     });
   }
 
   submitSales() {
+    //this.today = new Date();
     this.loader = true;
+    //this.addSales.paymentType = this.paymentType;
     this.addSales.updatedTime =
       this.today.getHours() +
       ':' +
@@ -55,19 +67,58 @@ export class TodaysSalesComponent implements OnInit {
     if (this.loggedInUser) {
       this.commonService.addTodaySales(this.addSales).subscribe((res) => {
         this.message = res.message;
-        this.daySales = res.updatedSales;
+
+        this.daySales = res.data.todaysSales;
+
         this.loader = false;
+        this.addSales.paymentMoney = '';
+        this.addSales.paymentType = '';
       });
+      // this.checkSales();
     }
   }
+  // checkSales(data:any) {
+  //   if (this.loggedInUser) {
+  //     this.commonService.addTodaySales(this.addSales).subscribe((res) => {
+  //       this.message = res.message;
 
+  //       this.daySales = res.data.todaysSales;
+
+  //       this.loader = false;
+  //       this.addSales.paymentMoney = '';
+  //       this.addSales.paymentType = '';
+  //     });
+  //   }
+  // }
+  fetchTodaysSales() {
+    let user = {
+      owner: this.loggedInUser.shopId,
+      selectedDate: this.addSales.selectedDate,
+    };
+    // let user = { owner: 9945915370 };
+    if (this.loggedInUser && !this.mySalesOpen) {
+      this.commonService.getAllSales(user).subscribe((res) => {
+        // this.mySales = res.data.reverse();
+        // this.mySalesOpen = true;
+        this.daySales = res.data.todaysSales;
+        this.loader = false;
+      });
+    } else {
+      this.mySalesOpen = false;
+    }
+  }
   fetchAllSales() {
-    let user = { owner: this.loggedInUser.shopId };
+    let user = {
+      owner: this.loggedInUser.shopId,
+      selectedDate: null,
+    };
     // let user = { owner: 9945915370 };
     if (this.loggedInUser && !this.mySalesOpen) {
       this.commonService.getAllSales(user).subscribe((res) => {
         this.mySales = res.data.reverse();
         this.mySalesOpen = true;
+        //this.daySales = res.data.todaysSales;
+        this.loader = false;
       });
     } else {
       this.mySalesOpen = false;

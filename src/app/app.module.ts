@@ -21,6 +21,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddItemPopComponent } from './Stocks/add-item-pop/add-item-pop.component';
@@ -52,6 +53,7 @@ import { RegisterUserComponent } from './RegisterUser/register-user/register-use
     AppRoutingModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatRadioModule,
     FormsModule,
     CommonModule,
     MatTabsModule,

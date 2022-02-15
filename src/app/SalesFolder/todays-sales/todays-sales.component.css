@@ -1,18 +1,26 @@
-/* .sales {
+.paymentType {
   display: flex;
-  gap: 2%;
-} */
+  gap: 10%;
+}
+.imagesPayment {
+  height: 40px;
+  width: 60px;
+}
 input {
   height: 50px;
   font-size: 20px;
 }
+.paymentType {
+  margin: 20px;
+}
 .save {
-  height: 50px;
-
+  /* height: 60px; */
+  /* width: 100%; */
   font-size: 200%;
   align-items: center;
   margin-top: 25px;
   border-radius: 10px;
+  padding: 5%;
 
   background-color: #86b300;
   color: white;
@@ -57,4 +65,14 @@ thead {
   height: 30px;
   width: 30px;
   margin-left: 10px;
+}
+.check {
+  display: flex;
+  gap: 10%;
+  cursor: pointer;
+}
+.check {
+  border: 0px;
+  width: 100%;
+  height: 1em;
 }
