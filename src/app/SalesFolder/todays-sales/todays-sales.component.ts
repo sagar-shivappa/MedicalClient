@@ -19,7 +19,7 @@ export class TodaysSalesComponent implements OnInit {
   today: any;
   addSales = {
     selectedDate: '',
-    todaysSales: '',
+    todaysSales: 0,
     updatedTime: '',
     owner: '111',
     Cash_Payment: 0,
@@ -65,7 +65,9 @@ export class TodaysSalesComponent implements OnInit {
       this.today.getSeconds();
     console.log(this.addSales);
     if (this.loggedInUser) {
+      parseInt(this.addSales.paymentMoney);
       this.commonService.addTodaySales(this.addSales).subscribe((res) => {
+        this.daySales = '';
         this.message = res.message;
 
         this.daySales = res.data.todaysSales;
@@ -96,15 +98,15 @@ export class TodaysSalesComponent implements OnInit {
       selectedDate: this.addSales.selectedDate,
     };
     // let user = { owner: 9945915370 };
-    if (this.loggedInUser && !this.mySalesOpen) {
+    if (this.loggedInUser) {
       this.commonService.getAllSales(user).subscribe((res) => {
         // this.mySales = res.data.reverse();
         // this.mySalesOpen = true;
-        this.daySales = res.data.todaysSales;
+        if (res.data != null) {
+          this.daySales = res.data.todaysSales;
+        }
         this.loader = false;
       });
-    } else {
-      this.mySalesOpen = false;
     }
   }
   fetchAllSales() {
