@@ -29,6 +29,7 @@ import { MySalesComponent } from './SalesFolder/my-history-sales/my-sales.compon
 import { SalesHomeComponent } from './SalesFolder/sales-home/sales-home.component';
 import { TodaysSalesComponent } from './SalesFolder/todays-sales/todays-sales.component';
 import { RegisterUserComponent } from './RegisterUser/register-user/register-user.component';
+import { UpdateSalesComponent } from './SalesFolder/update-sales/update-sales.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RegisterUserComponent } from './RegisterUser/register-user/register-use
     SalesHomeComponent,
     TodaysSalesComponent,
     RegisterUserComponent,
+    UpdateSalesComponent,
   ],
   imports: [
     NgxPaginationModule,

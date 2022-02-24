@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <form action="submit">
+    <h1>Edit Sales of{{ data.selectedDate }}</h1>
+    <div class="form-group">
+      <label for="cash">Cash Payment</label>
+      <input
+        id="cash"
+        name="cash"
+        type="number"
+        class="form-control"
+        [(ngModel)]="data.Cash_Payment"
+      />
+    </div>
+    <div class="form-group">
+      <label for="upi">UPI Payment</label>
+      <input
+        id="upi"
+        name="upi"
+        value="data.UPI_Payment"
+        [(ngModel)]="data.UPI_Payment"
+        type="number"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="donor">Donors Payment</label>
+      <input
+        id="donor"
+        name="donor"
+        type="number"
+        [(ngModel)]="data.donors_Pay"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="tot">Total Payment</label>
+      <input
+        id="tot"
+        name="tot"
+        type="number"
+        [(ngModel)]="data.todaysSales"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="updateSales()">Save</button>
+    </div>
+  </form>
+</div>
