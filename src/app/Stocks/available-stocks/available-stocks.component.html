@@ -8,6 +8,7 @@
       placeholder="Filter product"
       (ngModelChange)="doFilter($event)"
       [ngModel]="filterCheck"
+      autofocus
     />
   </div>
   <!-- without material usage -->
@@ -30,7 +31,6 @@
             | paginate: { itemsPerPage: 10, currentPage: p }
         "
       >
-        <!-- <td scope="row">{{ el.id }}</td> -->
         <td>{{ el.dcCode }}</td>
         <td>{{ el.productName }}</td>
         <td>{{ el.batchNumber }}</td>
@@ -43,57 +43,4 @@
   <div class="pagination">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
-  <!-- Using ANgular Materials -->
-
-  <!-- <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="No.">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="DC Code">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>DC Code</th>
-        <td mat-cell *matCellDef="let element">{{ element.dcCode }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="Product Name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="Batch Number">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Batch Number</th>
-        <td mat-cell *matCellDef="let element">{{ element.batchNumber }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="Manuf Date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Manuf Date</th>
-        <td mat-cell *matCellDef="let element">{{ element.mnfDate }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="Expiry Date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Expiry Date</th>
-        <td mat-cell *matCellDef="let element">{{ element.expireDate }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="Quantity">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
-        <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      <mat-paginator
-        [pageSizeOptions]="[5, 10, 15]"
-        showFirstLastButtons
-      ></mat-paginator>
-    </table>
-    <mat-paginator
-      [pageSizeOptions]="[7, 10, 15]"
-      [pageSize]="pageSize"
-      showFirstLastButtons
-    ></mat-paginator>
-    <div>{{ pageSize }}</div>
-  </div> -->
 </div>
