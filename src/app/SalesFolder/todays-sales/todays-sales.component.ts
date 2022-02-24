@@ -14,9 +14,10 @@ export class TodaysSalesComponent implements OnInit {
   customSales: any = 0;
   daySales: any = 0;
   loader: boolean = true;
-  // paymentType: any;
+  errorMessage: string = '';
   message: any;
   today: any;
+  p = 1;
   addSales = {
     selectedDate: '',
     todaysSales: 0,
@@ -54,59 +55,50 @@ export class TodaysSalesComponent implements OnInit {
   }
 
   submitSales() {
-    //this.today = new Date();
     this.loader = true;
-    //this.addSales.paymentType = this.paymentType;
     this.addSales.updatedTime =
       this.today.getHours() +
       ':' +
       this.today.getMinutes() +
       ':' +
       this.today.getSeconds();
-    console.log(this.addSales);
-    if (this.loggedInUser) {
+
+    if (this.loggedInUser && this.addSales.paymentType) {
+      this.errorMessage = '';
       parseInt(this.addSales.paymentMoney);
       this.commonService.addTodaySales(this.addSales).subscribe((res) => {
         this.daySales = '';
         this.message = res.message;
-
         this.daySales = res.data.todaysSales;
-
         this.loader = false;
         this.addSales.paymentMoney = '';
         this.addSales.paymentType = '';
+
+        this.fetchAllSales();
       });
-      // this.checkSales();
+    } else {
+      this.errorMessage = 'Please Select the Payment Type ';
+      this.loader = false;
     }
   }
-  // checkSales(data:any) {
-  //   if (this.loggedInUser) {
-  //     this.commonService.addTodaySales(this.addSales).subscribe((res) => {
-  //       this.message = res.message;
 
-  //       this.daySales = res.data.todaysSales;
-
-  //       this.loader = false;
-  //       this.addSales.paymentMoney = '';
-  //       this.addSales.paymentType = '';
-  //     });
-  //   }
-  // }
   fetchTodaysSales() {
     let user = {
       owner: this.loggedInUser.shopId,
       selectedDate: this.addSales.selectedDate,
     };
-    // let user = { owner: 9945915370 };
+
     if (this.loggedInUser) {
       this.commonService.getAllSales(user).subscribe((res) => {
-        // this.mySales = res.data.reverse();
-        // this.mySalesOpen = true;
         if (res.data != null) {
           this.daySales = res.data.todaysSales;
         }
         this.loader = false;
       });
+    } else {
+      this.errorMessage = 'User has not logged in. Kindly Relogin';
+      this.loader = false;
+      this.route.navigate(['login/']);
     }
   }
   fetchAllSales() {
@@ -115,15 +107,17 @@ export class TodaysSalesComponent implements OnInit {
       selectedDate: null,
     };
     // let user = { owner: 9945915370 };
-    if (this.loggedInUser && !this.mySalesOpen) {
+    if (this.loggedInUser) {
       this.commonService.getAllSales(user).subscribe((res) => {
         this.mySales = res.data.reverse();
         this.mySalesOpen = true;
         //this.daySales = res.data.todaysSales;
         this.loader = false;
+        //this.mySalesOpen = !this.mySalesOpen;
       });
     } else {
       this.mySalesOpen = false;
+      // this.loader = false;
     }
   }
   selctedDays(value: any) {
