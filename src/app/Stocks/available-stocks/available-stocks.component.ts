@@ -18,6 +18,7 @@ export interface AvailableData {}
 })
 export class AvailableStocksComponent implements OnInit {
   @Input() activeDrugList: any;
+  activeDrugListCopy: any;
   p = 1;
   @ViewChild(MatSort)
   sort: MatSort = new MatSort();
@@ -34,22 +35,24 @@ export class AvailableStocksComponent implements OnInit {
   dataSource1: any;
   dataSource: any;
   pageSize: '7';
+  filterCheck: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor() {}
   ngOnInit(): void {
-    // this.dataSource1 = this.activeDrugList;
-    // this.dataSource = new MatTableDataSource<any>(this.dataSource1);
-    // setTimeout(() => {
-    //   this.dataSource.paginator = this.paginator;
-    // }, 100);
+    this.activeDrugListCopy = this.activeDrugList;
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
   public doFilter = (value: any) => {
-    let activeDrugList1 = this.activeDrugList.filter((itm: any) => {
-      console.log(value);
-    });
-    console.log(activeDrugList1);
+    console.log(this.filterCheck, value);
+    //this.activeDrugList=["Sagar", "sagar", "Bhoom", "asha", "mahesh", "Mahesh"];
+    this.activeDrugList = this.activeDrugListCopy;
+    let activeDrugList2 = this.activeDrugList.filter(
+      (item: any) => item.productName.toLowerCase().match(value.toLowerCase())
+      // console.log(item.productName, value);
+    );
+    this.activeDrugList = activeDrugList2;
+    console.log(activeDrugList2);
   };
 }

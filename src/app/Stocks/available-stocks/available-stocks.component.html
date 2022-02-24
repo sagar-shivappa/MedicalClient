@@ -6,7 +6,8 @@
       class="form-control"
       matInput
       placeholder="Filter product"
-      (keyup)="doFilter($event)"
+      (ngModelChange)="doFilter($event)"
+      [ngModel]="filterCheck"
     />
   </div>
   <!-- without material usage -->
