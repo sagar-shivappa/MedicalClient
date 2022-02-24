@@ -112,7 +112,9 @@
             <td>{{ item.UPI_Payment | currency: "INR":true }}</td>
             <td>{{ item.donors_Pay | currency: "INR":true }}</td>
             <td>{{ item.todaysSales | currency: "INR":true }}</td>
-            <td><i class="fas fa-pencil-alt"></i></td>
+            <td (click)="editSales(item)">
+              <i class="fas fa-pencil-alt"></i>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -9,8 +9,10 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedService {
   private data = new BehaviorSubject('');
   private User = new BehaviorSubject('');
+  private salesData = new BehaviorSubject('');
   currentData = this.data.asObservable();
   loggedInUser = this.User.asObservable();
+  sendSalesData = this.salesData.asObservable();
   constructor() {}
 
   updateMessage(item: any) {
@@ -19,5 +21,8 @@ export class SharedService {
 
   getLoggedInUser(item: any) {
     this.User.next(item);
+  }
+  addSaleData(item: any) {
+    this.salesData.next(item);
   }
 }

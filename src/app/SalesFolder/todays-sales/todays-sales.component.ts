@@ -3,6 +3,12 @@ import { CommonService } from 'src/app/common.service';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { UpdateSalesComponent } from '../update-sales/update-sales.component';
 
 @Component({
   selector: 'app-todays-sales',
@@ -33,6 +39,7 @@ export class TodaysSalesComponent implements OnInit {
   mySales: any;
   paymentGroup: any;
   constructor(
+    public dialog: MatDialog,
     public sharedService: SharedService,
     public commonService: CommonService,
     private route: Router
@@ -53,7 +60,16 @@ export class TodaysSalesComponent implements OnInit {
       this.fetchTodaysSales();
     });
   }
+  editSales(item: any) {
+    this.sharedService.addSaleData(item);
+    const dialogRef = this.dialog.open(UpdateSalesComponent, {
+      width: '550px',
+    });
 
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
   submitSales() {
     this.loader = true;
     this.addSales.updatedTime =
