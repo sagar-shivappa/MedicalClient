@@ -1,9 +1,12 @@
 <div class="container-fluid">
-  <h1 style="text-align: center">Register New User</h1>
-  <!-- <div class="back">
-    <i class="fas fa-arrow-left"></i>
-    <h2>Back</h2>
-  </div> -->
+  <div class="header-register">
+    <i
+      class="fal fa-sign-in"
+      (click)="loginEnter()"
+      style="font-size: 35px"
+    ></i>
+    <h1 style="text-align: center">Register New User</h1>
+  </div>
   <section class="col-md-offset-3 col-md-6">
     <form [formGroup]="myForm" class="formSize" (ngSubmit)="onSubmit(myForm)">
       <div *ngIf="successSwitch" class="success">
