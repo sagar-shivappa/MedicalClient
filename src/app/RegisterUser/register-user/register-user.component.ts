@@ -87,4 +87,7 @@ export class RegisterUserComponent implements OnInit {
       this.successMessage = '';
     }, 3500);
   }
+  loginEnter() {
+    this.router.navigate(['/login']);
+  }
 }

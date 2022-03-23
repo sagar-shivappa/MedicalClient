@@ -7,6 +7,7 @@ import {
 import { SharedService } from 'src/app/shared.service';
 import { AddItemPopComponent } from '../add-item-pop/add-item-pop.component';
 import { ExcelSheetService } from '../../../services/excel-sheet.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-indented-stocks',
@@ -18,6 +19,7 @@ export class IndentedStocksComponent implements OnInit {
   p = 1;
   newList: any;
   reqQty: any;
+  loggedInuser: any;
   constructor(
     public dialog: MatDialog,
     public sharedService: SharedService,
@@ -32,6 +34,9 @@ export class IndentedStocksComponent implements OnInit {
       if (Object.keys(data).length > 1) {
         this.newList.push(data);
       }
+    });
+    this.sharedService.loggedInUser.subscribe((data: any) => {
+      this.loggedInuser = data.nickName;
     });
   }
   addRequirement(count: any, obj1: any) {
@@ -55,6 +60,10 @@ export class IndentedStocksComponent implements OnInit {
     });
   }
   downloadExcel() {
-    this.excelService.exportAsExcelFile(this.newList, 'myIntedts');
+    let date = new Date();
+    this.excelService.exportAsExcelFile(
+      this.newList,
+      this.loggedInuser + moment(date).format('DD-MM-YYYY HH:MM:SS')
+    );
   }
 }
