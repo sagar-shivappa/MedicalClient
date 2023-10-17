@@ -1,69 +1,78 @@
-<div class="container-fluid body">
-  <!-- <div class="register"> -->
-  <!-- <button
-      type="button"
-      class="btn btn-primary btn-lg"
-      (click)="registerUser()"
-    >
-      Register
-    </button> -->
-  <!-- </div> -->
+<div class="logo"></div>
+<div class="main-layout row">
+  <section class="col-md-6">
+    <form action="submit()" [formGroup]="login">
+      <div class="form-group">
+        <label for="userName"><h1>Phone Number :</h1></label>
+        <input
+          type="number"
+          id="phoneNumber"
+          name="phoneNumber"
+          class="form-control"
+          formControlName="phoneNumber"
+          placeholder="Enter your Registered Phone Number"
+          autofocus
+          required
+        />
+        <div
+          class="field-error"
+          *ngIf="
+            login.get('phoneNumber')?.invalid &&
+            (login.get('phoneNumber')?.touched ||
+              login.get('phoneNumber')?.dirty)
+          "
+        >
+          Phone Number is a Mandatory field
+        </div>
+      </div>
 
-  <div class="main-layout">
-    <section class="col-md-offset-2 col-md-8">
-      <form action="submit()">
-        <div class="form-group">
-          <label for="userName"><h1>Phone Number :</h1></label>
-          <input
-            type="number"
-            id="phoneNumber"
-            name="phoneNumber"
-            class="form-control"
-            [(ngModel)]="login.phoneNumber"
-            placeholder="Enter your Registered Phone Number"
-            autofocus
-          />
+      <div class="form-group">
+        <label for="pass"><h1>Password</h1></label>
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          class="form-control"
+          formControlName="passWord"
+          placeholder="Enter your password"
+        />
+        <div
+          class="field-error"
+          *ngIf="
+            login.get('passWord')?.invalid &&
+            (login.get('passWord')?.touched || login.get('passWord')?.dirty)
+          "
+        >
+          Phone Number is a Mandatory field
         </div>
-        <div class="form-group">
-          <label for="pass"><h1>Password</h1></label>
-          <input
-            type="password"
-            id="pass"
-            name="pass"
-            class="form-control"
-            value="{login.password}"
-            [(ngModel)]="login.passWord"
-            placeholder="Enter your password"
-          />
-        </div>
-        <div class="form-group">
-          <button
-            class="btn btn-success btn-lg"
-            (keyup.enter)="submitHandler()"
-            (click)="submitHandler()"
-          >
-            SUBMIT
-          </button>
-          <img
-            *ngIf="loader"
-            class="loader"
-            src="https://i.gifer.com/ZZ5H.gif"
-            alt=""
-          />
-          <button
-            style="margin-left: 3%"
-            type="button"
-            class="btn btn-primary btn-lg"
-            (click)="registerUser()"
-          >
-            Register
-          </button>
-          <a style="margin-left: 3%" href="">Forgot Password?</a>
-        </div>
-        <div>
-          <h2 style="color: red">{{ errorMessage }}</h2>
-        </div>
-      </form>
-    </section>
-  </div>
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-success btn-lg"
+          (keyup.enter)="submitHandler()"
+          (click)="submitHandler()"
+        >
+          SUBMIT
+        </button>
+        <img
+          *ngIf="loader"
+          class="loader"
+          src="https://i.gifer.com/ZZ5H.gif"
+          alt=""
+        />
+        <button
+          style="margin-left: 3%"
+          type="button"
+          class="btn btn-primary btn-lg"
+          (click)="registerUser()"
+        >
+          Register
+        </button>
+        <a style="margin-left: 3%" href="">Forgot Password?</a>
+      </div>
+      <div>
+        <h2 style="color: red">{{ errorMessage }}</h2>
+      </div>
+    </form>
+  </section>
 </div>

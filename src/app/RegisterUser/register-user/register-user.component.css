@@ -7,31 +7,7 @@
   gap: 10%;
   cursor: pointer;
 }
-.field-error {
-  color: #800000;
-  background-color: #ff6666;
-  height: 40px;
-  font-size: 20px;
-  border-radius: 5px;
-  padding: 1%;
-  /* text-align: center; */
-}
-.success {
-  color: #ffffff;
-  background-color: #a6ff4d;
-  height: 40px;
-  font-size: 20px;
-  border-radius: 5px;
-  padding: 1%;
-}
-.failure {
-  color: #ffffff;
-  background-color: #ff3333;
-  height: 40px;
-  font-size: 20px;
-  border-radius: 5px;
-  padding: 1%;
-}
+
 .back {
   font-size: 35px;
   display: flex;
